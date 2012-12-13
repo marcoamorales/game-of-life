@@ -129,7 +129,7 @@ def main():
     while True:
         w.print_grid()
         w.next_generation()
-        time.sleep(1)
+        time.sleep(0.1)
 
 if __name__ == '__main__':
     main()
