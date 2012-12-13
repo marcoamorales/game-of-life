@@ -1,4 +1,5 @@
 import copy
+import time
 
 alive_char = '@'
 dead_char = '.'
@@ -109,11 +110,9 @@ class World(object):
         return alive, dead
 
     def revive(self, grid, i, j):
-        print 'reviving'
         grid[i][j] = self.alive_char
 
     def kill(self, grid, i, j):
-        print 'killing'
         grid[i][j] = self.dead_char
 
     def is_alive(self, grid, i, j):
@@ -122,3 +121,14 @@ class World(object):
     def print_grid(self):
         for line in self.grid:
             print ''.join(line) + '\n'
+
+def main():
+    grid = str2grid('/home/marco/.virtualenvs/GameOfLife/gameoflife/game-of-life/initial_state.txt', '@', '.')
+    w = World(grid, '@', '.')
+    while True:
+        w.print_grid()
+        w.next_generation()
+        time.sleep(1)
+
+if __name__ == '__main__':
+    main()
