@@ -1,4 +1,5 @@
 import copy
+import sys
 import time
 
 alive_char = '@'
@@ -123,7 +124,7 @@ class World(object):
             print ''.join(line) + '\n'
 
 def main():
-    grid = str2grid('/home/marco/.virtualenvs/GameOfLife/gameoflife/game-of-life/initial_state.txt', '@', '.')
+    grid = str2grid(sys.argv[1], '@', '.')
     w = World(grid, '@', '.')
     while True:
         w.print_grid()
